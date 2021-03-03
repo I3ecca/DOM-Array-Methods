@@ -56,6 +56,7 @@ function calculateWealth() {
     let totalWealth = document.getElementById("wealthEl");
     const wealth = data.reduce((acc, user) => ( acc += user.money), 0);
     let newCalcMoney = formatMoney(wealth);
+    // above, we calculate the wealth, but if it already exists, exit out of the function. if it does not exist, it continues down the function and it appends the wealthEl to the DOM.
     if(totalWealth !== null && totalWealth.innerHTML === `<h3>Total Wealth: <strong>${newCalcMoney}</strong></h3>`){
         return;
     }

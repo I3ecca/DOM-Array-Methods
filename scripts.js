@@ -52,10 +52,44 @@ function showMillionaires() {
 }
 
 function calculateWealth() {
-const wealth = data.reduce((acc, user) => ( acc += user.money), 0);
-const wealthEl = document.createElement("div");
-wealthEl.innerHTML = `<h3>Total Wealth: <strong>${formatMoney(wealth)}</strong></h3>`;
-main.appendChild(wealthEl);
+    
+    let totalWealth = document.getElementById("wealthEl");
+    const wealth = data.reduce((acc, user) => ( acc += user.money), 0);
+    let newCalcMoney = formatMoney(wealth);
+    if(totalWealth !== null && totalWealth.innerHTML === `<h3>Total Wealth: <strong>${newCalcMoney}</strong></h3>`){
+        return;
+    }
+    // const wealth = data.reduce((acc, user) => ( acc += user.money), 0);
+    const wealthEl = document.createElement("div");
+    wealthEl.innerHTML = `<h3>Total Wealth: <strong>${formatMoney(wealth)}</strong></h3>`;
+    wealthEl.setAttribute("id","wealthEl");
+    main.appendChild(wealthEl);
+
+// calculateWealthBtn.addEventListener("click", function(){
+//     let totalWealth = document.getElementById("wealthEl");
+//     console.log(totalWealth);
+//     if(totalWealth === null){
+//         calculateWealthBtn.addEventListener("click",calculateWealth);
+//     }else{
+//         totalWealth.parentNode.removeChild(totalWealth);
+//         calculateWealthBtn.addEventListener("click",calculateWealth);
+//     }
+    
+        
+
+
+
+//         // if(document.body.contains(totalWealth)){
+//         //     totalWealth.parentNode.removeChild(totalWealth);
+//         //     calculateWealthBtn.addEventListener("click",calculateWealth)
+//         // }else{
+//         //     calculateWealthBtn.addEventListener("click",calculateWealth)
+//         // }
+    
+    
+// });
+
+
 }
 
 
